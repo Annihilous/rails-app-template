@@ -1,0 +1,25 @@
+.box
+  %h1
+    = @character.name
+  %h3
+    = @character.description
+  %p
+    %b Str:
+    #{@character.strength} ( #{@character.stat_bonus(@character.strength)} )
+  %p
+    %b Dex:
+    #{@character.dexterity} ( #{@character.stat_bonus(@character.dexterity)} )
+  %p
+    %b End:
+    #{@character.endurance} ( #{@character.stat_bonus(@character.endurance)} )
+  %p
+    %b Int:
+    #{@character.intelligence} ( #{@character.stat_bonus(@character.intelligence)} )
+  %p
+    %b Edu:
+    #{@character.education} ( #{@character.stat_bonus(@character.education)} )
+  %p
+    %b Soc:
+    #{@character.social} ( #{@character.stat_bonus(@character.social)} )
+
+  = link_to 'Edit', edit_character_path(@character)

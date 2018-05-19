@@ -16,6 +16,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+/notes
 /.DS_Store
 .DS_Store
 .env

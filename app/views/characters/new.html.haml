@@ -1,0 +1,27 @@
+%h1 New Character
+
+%h3 Stat Array
+= @stat_array
+
+= simple_form_for(@character) do |f|
+  = f.error_notification
+
+  .form-group
+    = f.input :name, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :description, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :strength, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :dexterity, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :endurance, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :intelligence, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :education, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :social, input_html: { class: 'form-control' }
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary btn-lg'
