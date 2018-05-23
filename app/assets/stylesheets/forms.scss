@@ -9,3 +9,10 @@
 .choose-new-image-wrapper {
   margin: 10px 0px;  
 }
+
+.draggable .stat-wrapper {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  color: $color_primary_dark;
+}

@@ -1,27 +1,50 @@
 %h1 New Character
 
 %h3 Stat Array
-= @stat_array
+
+.row
+  - @stat_array.each do |stat|
+    .col-sm-2.z-index-fwd
+      .draggable.text-center.stat-wrapper.ui-widget-content{ data: {value: stat.to_i} }
+        = stat
 
 = simple_form_for(@character) do |f|
   = f.error_notification
-
   .form-group
     = f.input :name, input_html: { class: 'form-control' }
   .form-group
-    = f.input :description, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :strength, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :dexterity, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :endurance, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :intelligence, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :education, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :social, input_html: { class: 'form-control' }
+    = f.input :description, input_html: { class: 'droppable form-control' }
+
+  .row
+    .col-sm-4
+      .form-group.ui-widget-header
+        = f.input :strength, input_html: { class: 'form-control droppable' }
+    .col-sm-4
+      .form-group.ui-widget-header
+        = f.input :dexterity, input_html: { class: 'form-control droppable' }
+    .col-sm-4
+      .form-group.ui-widget-header
+        = f.input :endurance, input_html: { class: 'form-control droppable' }
+    .col-sm-4
+      .form-group.ui-widget-header
+        = f.input :intelligence, input_html: { class: 'form-control droppable' }
+    .col-sm-4
+      .form-group.ui-widget-header
+        = f.input :education, input_html: { class: 'form-control droppable' }
+    .col-sm-4
+      .form-group.ui-widget-header
+        = f.input :social, input_html: { class: 'form-control droppable' }
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary btn-lg'
+
+
+:javascript
+  $('.draggable').draggable();
+
+  $('.droppable').droppable({
+    drop: function(event, ui) {
+      $(this).val(ui.draggable.data('value'));
+      $(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+    }
+  });

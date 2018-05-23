@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180429030817) do
     t.string   "description"
     t.integer  "strength",     null: false
     t.integer  "dexterity",    null: false
-    t.integer  "endurance", null: false
+    t.integer  "endurance",    null: false
     t.integer  "intelligence", null: false
     t.integer  "education",    null: false
     t.integer  "social",       null: false
